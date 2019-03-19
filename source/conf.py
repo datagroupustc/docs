@@ -144,7 +144,7 @@ latex_documents = [
     (master_doc, 'docs.tex', u'docs Documentation',
      u'HanFeng', 'manual'),
 ]
-
+latex_engine = 'xelatex'
 
 # -- Options for manual page output ------------------------------------------
 
