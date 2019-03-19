@@ -13,6 +13,9 @@ Contents:
    hello
    ML tools/pytorch
    platform/requirement
+   platform/page
+   platform/function
+   
    platform/timeline
 
 
