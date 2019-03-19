@@ -114,8 +114,8 @@
 - **程序内部异常处理机制**
 - **其他说明与补充**
    - 算法流程
-      - app ![1552825019275](C:\Users\lmj\AppData\Roaming\Typora\typora-user-images\1552825019275.png)
-      - rout ![1552825032715](C:\Users\lmj\AppData\Roaming\Typora\typora-user-images\1552825032715.png)
+      - app ![](figure/api-app.png)
+      - rout ![](figure/api-rout.png)
 
 
 #### real-time-process
@@ -468,7 +468,7 @@ utility_image_skeleton-detection	评估图片数据集的骨架检测效用	模�
 
 ### 数据溯源与追踪
 
-![ ](figure/数据追溯说明1.png  "数据追溯说明1")
+![ ](figure/track1.png  "数据追溯说明1")
 
 #### querySimiliar
 - **功能概述**
@@ -528,7 +528,7 @@ utility_image_skeleton-detection	评估图片数据集的骨架检测效用	模�
 
 ### 数据质量评估
 
-![ ](figure/数据质量评估1.png  "数据质量评估1")
+![ ](figure/quality1.png  "数据质量评估1")
 
 #### image_quality_assessment
 - **功能概述**
