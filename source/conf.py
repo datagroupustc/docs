@@ -20,7 +20,7 @@ import recommonmark
 from recommonmark.transform import AutoStructify
 from recommonmark.parser import CommonMarkParser
 import sphinx_rtd_theme
-import sphinx_markdown_tables
+
 
 # -- Project information -----------------------------------------------------
 
