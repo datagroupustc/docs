@@ -25,7 +25,9 @@ pip install sphinx sphinx-autobuild sphinx_rtd_theme sphinx_markdown_tables
    - page：页面需求说明
    - function：功能模块接口
    - database：数据库设计
+   - storage：数据存储相关的设计
    - timeline：时间规划
+   - questions：将现有的问题分类写在此处，如有解决方案可以在问题下进行填充
    - figure文件夹：存放相关图片资料，命名规范：groupname-XXX
 - 编写规范说明
    - 需求说明文档：待增
