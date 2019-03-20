@@ -13,7 +13,10 @@ Contents:
    platform/requirement
    platform/page
    platform/function
+   platform/database
+   platform/storage
    platform/timeline
+   
 
 
 
