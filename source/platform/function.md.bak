@@ -473,68 +473,58 @@ utility_image_skeleton-detection	评估图片数据集的骨架检测效用	模�
 #### querySimiliar
 - **功能概述**
    - 对于新数据，查询相似的数据结果，并返回相似度值和报告
-- **开发状态**: 正在开发
-- **负责人**: liuhuiqi@mail.ustc.edu.cn
-- **运行环境**: python3.6+
-- **部署位置**: 跳板服务器 `/datapool/workspace/liuhuiqi/platform_env_python3/liuhuiqi/hash_group_api.py`
+- **开发状态**
+- **负责人**
+- **运行环境**
+- **部署位置**
 - **输入参数及说明**
-   - 数据集 dataset id: dataset id 为数据库中数据集对应的dataset id
+   - 数据集element id
 - **输出参数及说明**
-   目前是一个字典，可以转换为JSON格式
-   ```
-   {
-    'element id in dataset queried': 'similiar element id in whole dataset',
-    ...
-   }
-   ```
+   - 相似数据结果和相似度报告
 - **调用示例与结果**
-  调用示例和结果
-  ```
-  query = hash_group_api.Hash('dataset id')
-  result = query.querySimiliar()
-  ```
 - **程序内部异常处理机制**
-  对于异常，一律触发python的exception
-  |异常说明|异常|
-  |---|---|
-  |dataset id 未输入|`ValueError`|
-  |dataset id 在数据库中不存在或不唯一| 不检查|
-  |数据类型不支持检查|`TypeError`|
-  |element id (从dataset element表中获取的结果) 在数据库中不存在或不唯一|不检查|
-  |找不到element对应的文件位置|`FileNotFoundError`|
-  |FFMpeg 提取关键帧出错|`Exception`|
-
-
 
 #### updateDatabase
 - **功能概述**
    - 对于新数据，确认和现有数据不相似后，将其指纹写入数据库
-- **开发状态**: 正在开发
-- **负责人**: liuhuiqi@mail.ustc.edu.cn
-- **运行环境**: python3.6+
-- **部署位置**: 跳板服务器 `/datapool/workspace/liuhuiqi/platform_env_python3/liuhuiqi/hash_group_api.py`
+- **开发状态**
+- **负责人**
+- **运行环境**
+- **部署位置**
 - **输入参数及说明**
-   - 数据集 dataset id: dataset id 为数据库中数据集对应的dataset id
+   - 数据集element id
 - **输出参数及说明**
-   - 将哈希值写入数据库(每个哈希1024比特)
+   - 将哈希值写入数据库
 - **调用示例与结果**
-  调用示例和结果
-  ```
-  query = hash_group_api.Hash('dataset id')
-  result = query.querySimiliar() # 前置条件，目前必须调用
-  if condition: # 该条件由前端管理员触发
-    query.updateDatabase()
-  ```
 - **程序内部异常处理机制**
-  对于异常，一律触发python的exception
-  |异常说明|异常|
-  |---|---|
-  |dataset id 未输入|`ValueError`|
-  |dataset id 在数据库中不存在或不唯一| 不检查|
-  |数据类型不支持检查|`TypeError`|
-  |element id (从dataset element表中获取的结果) 在数据库中不存在或不唯一|不检查|
-  |找不到element对应的文件位置|`FileNotFoundError`|
-  |FFMpeg 提取关键帧出错|`Exception`|
+
+#### forest
+- **功能概述**
+   - 获取不同数据类型各自哈希值组成的哈希森林
+- **开发状态**
+- **负责人**
+- **运行环境**
+- **部署位置**
+- **输入参数及说明**
+   - 数据类型
+- **输出参数及说明**
+   - 哈希森林
+- **调用示例与结果**
+- **程序内部异常处理机制**
+
+#### updateForest
+- **功能概述**
+   - 查询是否有新的数据未被纳入森林索引，如果没有，纳入后重建森林
+- **开发状态**
+- **负责人**
+- **运行环境**
+- **部署位置**
+- **输入参数及说明**
+   - 数据类型
+- **输出参数及说明**
+   - 哈希森林
+- **调用示例与结果**
+- **程序内部异常处理机制**
 
 ### 数据质量评估
 
@@ -601,7 +591,7 @@ utility_image_skeleton-detection	评估图片数据集的骨架检测效用	模�
 
 #### text_quality_assessment
 - **功能概述**
-   - 对文本进行多个维度的质量评估，包括：拼写正确性，语法正确性，可读性
+   - 对文本进行多个维度的质量评估，包括：拼写正确性，语法正确性，
 - **开发状态**
    - 已完成
 - **负责人**
