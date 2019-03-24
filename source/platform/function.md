@@ -50,12 +50,11 @@
    - 验证参数
    - 调用api，并返回结果
    - 更新数据库，存储调用记录等
-- **开发状态**
+- **开发状态**：已完成
 - **负责人**
    - lmj123@mail.ustc.edu.cn
-- **运行环境**
-- **部署位置**
-   - [API/app.js](https://github.com/santaizi/API/blob/master/app.js)
+- **运行环境**：nodejs
+- **部署位置**:跳板机
 - **输入参数及说明**
 
 | 名称          | 类型 | 说明                                                         |
@@ -112,6 +111,8 @@
 
 
 - **程序内部异常处理机制**
+
+   - 捕捉异步异常，返回状态码，程序不崩溃。（有待开发）
 - **其他说明与补充**
    - 算法流程
       - app ![](figure/api-app.png)
@@ -122,10 +123,12 @@
 - **功能概述**
    - 传输模型训练进度信息给前端，用于绘制模型训练过程中实时的精度、loss变化，以及进度条。
    - 需要前端创建tcp socket server，用于接收数据
-- **开发状态**
+- **开发状态**：已完成
 - **负责人**
    - yang12@mail.ustc.edu.cn
 - **运行环境**
+   - python3
+   - 要求前端提前开启tcp socket server。
 - **部署位置**
    - /datapool/workspace/jiangshanyang/ml_model/arith
 - **输入参数及说明**
@@ -147,6 +150,8 @@
 
 - **调用示例与结果**
 - **程序内部异常处理机制**
+   - 检测tcp socket server端是否开启。（有待开发）
+   - 出错时返回相应的状态信息。（有待开发）
 - **其他说明与补充**
    - 算法流程
       - 接受nodejs端的调用请求及参数
@@ -155,6 +160,36 @@
       - 与tcp socket server建立接连，并在每个训练batch结束时计算当前训练accuracy和loss，以tcp socket的方式传输给前端
       - 返回训练结果给nodejs端
 
+### api质量评估
+
+- **功能概述**
+
+  - 评估api质量
+
+- **开发状态**：有待开发
+
+- **负责人**：lmj123@mail.ustc.edu.cn
+
+- **运行环境**
+
+- **部署位置**：
+
+- **输入参数**：
+
+  | 名称       | 类型   | 说明                                      |
+  | ---------- | ------ | ----------------------------------------- |
+  | api_id     | int    | 当前api的id                               |
+  | dataset_id | string | 数据集id。评估当前api在相应数据集上的质量 |
+
+- **输出参数**：
+
+  | 名称        | 类型 | 说明    |
+  | ----------- | ---- | ------- |
+  | api_quality | JSON | api质量 |
+
+- **调用示例与结果**
+
+- **程序内部异常处理机制**
 
 ### 数据理解与检索部分
 
@@ -283,7 +318,7 @@
    - 数据集效用评估分数
 - **调用示例与结果**
 - **程序内部异常处理机制**
-utility_image_skeleton-detection	评估图片数据集的骨架检测效用	模型运行结果路径	数据集效用评估分数
+	utility_image_skeleton-detection	评估图片数据集的骨架检测效用	模型运行结果路径	数据集效用评估分数
 #### utility_image_skeleton-detection
 - **功能概述**
    - 评估图片数据集的骨架检测效用
@@ -472,12 +507,14 @@ utility_image_skeleton-detection	评估图片数据集的骨架检测效用	模�
 
 #### querySimiliar
 - **功能概述**
+
    - 对于新数据，查询相似的数据结果，并返回相似度值和报告
 - **开发状态**: 正在开发
 - **负责人**: liuhuiqi@mail.ustc.edu.cn
 - **运行环境**: python3.6+
 - **部署位置**: 跳板服务器 `/datapool/workspace/liuhuiqi/platform_env_python3/liuhuiqi/hash_group_api.py`
 - **输入参数及说明**
+
    - 数据集 dataset id: dataset id 为数据库中数据集对应的dataset id
 - **输出参数及说明**
    结果是一个字典，转换为JSON格式，返回给主程序改JSON文件的文件地址。
@@ -509,14 +546,17 @@ utility_image_skeleton-detection	评估图片数据集的骨架检测效用	模�
 
 #### updateDatabase
 - **功能概述**
+
    - 对于新数据，确认和现有数据不相似后，将其指纹写入数据库
 - **开发状态**: 正在开发
 - **负责人**: liuhuiqi@mail.ustc.edu.cn
 - **运行环境**: python3.6+
 - **部署位置**: 跳板服务器 `/datapool/workspace/liuhuiqi/platform_env_python3/liuhuiqi/hash_group_api.py`
 - **输入参数及说明**
+
    - 数据集 dataset id: dataset id 为数据库中数据集对应的dataset id
 - **输出参数及说明**
+
    - 将哈希值写入数据库(每个哈希1024比特)
 - **调用示例与结果**
   调用示例和结果
