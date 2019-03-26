@@ -922,12 +922,20 @@
 ```javascript
 {
     "dataset_id":{//表格集dataset_id的上下文质量
-	"all_score":"整体质量分数",(类型：double，取值：不小于0)
+	"all_score": "整体质量分数",(类型：double，取值：不小于0)
+	"Syntactic_validity_score": "语法有效性",
+	"completeness": 表格完整性，
+	"conciseness"：简洁性
 	},
 }
 ```
 - **调用示例与结果**
+   - table_quality_assessment(dataset_id), table_score_result.json
 - **程序内部异常处理机制**
+   - flag=000，程序执行错误
+   - flag=001，输入数据集dataset_id错误
+   - flag=010，IO错误
+
 
 ### 数据库与存储组
 
