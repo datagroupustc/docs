@@ -196,29 +196,38 @@
 #### video_detect_keyframe
 - **功能概述**
    - 抽取视频关键帧
-- **开发状态**
-- **负责人**
-- **运行环境**
-- **部署位置**
+- **开发状态**：已完成
+- **负责人**： 袁牧
+- **运行环境**： python3 workspace/yuanmu/yuanmu_env
+- **部署位置**：
 - **输入参数及说明**
-   - 视频路径
+   - 视频文件夹路径
+   - （default）从数据库search_table中读入视频数据路径
 - **输出参数及说明**
-   - 关键帧存储路径
+   - 于指定路径保存输出结果（pickle文件）
+   - （default）更新数据库视频关键帧路径
 - **调用示例与结果**
+   - 查看帮助：python3 video_detect_keyframe.py -h
 - **程序内部异常处理机制**
 
+
+
 #### image_detect_object
+
 - **功能概述**
    - 检测图片中的物体
-- **开发状态**
-- **负责人**
-- **运行环境**
+- **开发状态**：已完成
+- **负责人**：袁牧
+- **运行环境**：python2 default
 - **部署位置**
 - **输入参数及说明**
    - 图片文件夹路径
+   - （default）从数据库中读入图片文件夹路径
 - **输出参数及说明**
    - 模型运行结果存储路径
+   - （default）更新数据库中图片数据集的物体检测结果
 - **调用示例与结果**
+   - 查看帮助：python2 image_detect_object.py -h
 - **程序内部异常处理机制**
 
 #### image_classify_scene
@@ -461,45 +470,125 @@
 
 #### text_privacy_protection
 - **功能概述**
+
    - 文本数据脱敏
-- **开发状态**
-- **负责人**
-- **运行环境**
-- **部署位置**
+
+- **开发状态**：正在进行
+
+- **负责人**：ruijiao@mail.ustc.edu.cn
+
+- **运行环境**：python3
+
+- **部署位置**：跳板机
+
 - **输入参数及说明**
-   - 数据库读入数据，前端获取用户配置
+
+   | 名称          | 类型   | 说明             |
+   | ------------- | ------ | ---------------- |
+   | dataset_id    | String | 数据集的ID       |
+   | Configuration | Json   | 用户数据脱敏配置 |
+
 - **输出参数及说明**
-   - 脱敏后数据集，配置参数存储到数据库，返回给前端数据集路径
+
+   | 名称          | 类型   | 说明           |
+   | ------------- | ------ | -------------- |
+   | dataset       | File   | 脱敏后数据集   |
+   | dataset_id    | String | 脱敏后数据集ID |
+   | configuration | Json   | 脱敏参数配置   |
+
 - **调用示例与结果**
+
 - **程序内部异常处理机制**
 
 #### table_privacy_protection
 - **功能概述**
+
    - 表格数据脱敏
-- **开发状态**
-- **负责人**
-- **运行环境**
-- **部署位置**
+
+- **开发状态**：正在进行
+
+- **负责人**:ruijiao@mail.ustc.edu.cn
+
+- **运行环境**：JDK
+
+- **部署位置**：跳板机
+
 - **输入参数及说明**
-   - 数据库读入数据，前端获取用户配置
+
+| 名称          | 类型   | 说明             |
+| ------------- | ------ | ---------------- |
+| dataset_id    | String | 数据集的ID       |
+| Configuration | Json   | 用户数据脱敏配置 |
+
 - **输出参数及说明**
-   - 脱敏后数据集，配置参数存储到数据库，返回给前端数据集路径
+
+| 名称          | 类型   | 说明           |
+| ------------- | ------ | -------------- |
+| dataset       | File   | 脱敏后数据集   |
+| dataset_id    | String | 脱敏后数据集ID |
+| configuration | Json   | 脱敏参数配置   |
+
 - **调用示例与结果**
+
 - **程序内部异常处理机制**
 
 #### image_privacy_protection
 - **功能概述**
+
    - 图片数据脱敏
-- **开发状态**
+
+- **开发状态**：正在进行
+
+- **负责人**：ruijiao@mail.ustc.edu.cn
+
+- **运行环境**：python3， /datapool/workspace/jiaorui/imageInpainting
+
+- **部署位置**：跳板机
+
+- **输入参数及说明**
+
+| 名称          | 类型   | 说明             |
+| ------------- | ------ | ---------------- |
+| dataset_id    | String | 数据集的ID       |
+| Configuration | Json   | 用户数据脱敏配置 |
+
+- **输出参数及说明**
+
+| 名称          | 类型   | 说明           |
+| ------------- | ------ | -------------- |
+| dataset       | File   | 脱敏后数据集   |
+| dataset_id    | String | 脱敏后数据集ID |
+| configuration | Json   | 脱敏参数配置   |
+
+- **调用示例与结果**
+
+- **程序内部异常处理机制**
+
+#### video_privacy_protection
+
+- **功能概述**
+  - 视频数据脱敏
+- **开发状态**：有待开发
+- **负责人**
+- **运行环境**：
+- **部署位置**
+- **输入参数及说明**
+- **输出参数及说明**
+- **调用示例与结果**
+- **程序内部异常处理机**
+
+#### audio_privacy_protection
+
+- **功能概述**
+  - 音频数据脱敏
+- **开发状态**：有待开发
 - **负责人**
 - **运行环境**
 - **部署位置**
 - **输入参数及说明**
-   - 数据库读入数据，前端获取用户配置（需依赖数据理解组对图片多种模型的理解结果）
 - **输出参数及说明**
-   - 脱敏后数据集，配置参数存储到数据库，返回给前端数据集路径
 - **调用示例与结果**
-- **程序内部异常处理机制**
+- **程序内部异常处理机**
 
 ### 数据溯源与追踪
 
@@ -532,7 +621,7 @@
   ```
 - **程序内部异常处理机制**
   对于异常，一律触发python的exception
-  
+
   |异常说明|异常|
   |---|---|
   |dataset id 未输入|`ValueError`|
@@ -582,48 +671,86 @@
 
 ![ ](figure/quality1.png  "数据质量评估1")
 
-#### image_intrinsic_distortion_quality_assessment()
+#### image_intrinsic_distortion_quality_assessment
 - **功能概述**
-   - 已知图片失真类型时（白噪，高斯模糊，快速衰竭，jp2k压缩，jpeg压缩），对单张图片各个失真类型进行评估
+   - 对图片各个失真类型，包括：白噪，高斯模糊，快速衰竭，jp2k压缩，jpeg压缩进行评估
 - **开发状态**
    - 已完成
 - **负责人**
 - **运行环境**
-   - PyTorch 0.4, TensorboardX 1.2, TensorFlow-TensorBoard
+   - Python 2.7, PyTorch 0.4, TensorboardX 1.2, TensorFlow-TensorBoard
 - **部署位置**
    - 2号服务器
 - **输入参数及说明**
-   - image_dataset: quality1.png, quality2.png: 图片 
+   - 数据库dataset表dataset_id
 - **输出参数及说明**
-   - image_score_result_1.json:
-   "quality1.png":{
-	"wn_score":"白噪分数",
+   - flag 程序正常结束or not
+   - address json存放地址
+   - 附加说明：json文件格式 image_score_result_1.json:
+```javascript
+{
+    "image1.png":{//图片image1.png的各个失真类型分数
+	"wn_score":"白噪分数",(double,取值范围0-100)
 	"gblur_score": "高斯模糊分数",
 	"fastfading_score": "快速衰竭分数",
 	"jp2k_score": "jp2k压缩分数",
 	"jpeg_score": "jpeg压缩分数",
 	},
-   "quality2.png":{
-	"wn_score":"白噪分数",
-	"gblur_score": "高斯模糊分数",
-	"fastfading_score": "快速衰竭分数",
-	"jp2k_score": "jp2k压缩分数",
-	"jpeg_score": "jpeg压缩分数",
-	}
+}
+```
 - **调用示例与结果**
-   - image_intrinsic_distortion_quality_assessment(quality1, quality2), image_score_result_1.json
+   - image_intrinsic_distortion_quality_assessment(), image_score_result_1.json
 - **程序内部异常处理机制**
-   - 当图片输入错误，程序抛出：图片size错误异常
+   - flag=000，输入错误，程序抛出（图片尺寸大小异常)
+   - flag=001，输入数据集dataset_id错误
+   - flag=010，IO错误
 
 #### image_intrinsic_all_quality_assessment()
 - **功能概述**
-   - 未知图片失真类型时，对单张图片质量进行整体评估
+   - 未知图片失真类型时，对单张图片质量进行整体内在质量评估
 - **开发状态**
    - 正在进行
 - **负责人**
    - 李安然
 - **运行环境**
    - MATLAB
+- **部署位置**
+   - 2号服务器
+- **输入参数及说明**
+   - image: image1.png, image2.png: 图片
+- **输出参数及说明**
+   - image_score_result_2.json:
+```javascript
+{
+    "image1.png":{//图片image1.png的整体质量分数
+	"wn_score":"白噪分数",(double,取值范围0-100)
+	"gblur_score": "高斯模糊分数",
+	"fastfading_score": "快速衰竭分数",
+	"jp2k_score": "jp2k压缩分数",
+	"jpeg_score": "jpeg压缩分数",
+	},
+}
+```
+   "image1.png":{
+	"all_score":"图片整体分数",
+	},
+   "image2.png":{
+	"all_score":"图片整体分数",
+	}
+- **调用示例与结果**
+   - image_intrinsic_all_quality_assessment(quality1, quality2), image_score_result_2.json
+- **程序内部异常处理机制**
+   - 无
+
+#### image__contextual_quality_assessment()
+- **功能概述**
+   - 对图片集进行上下文质量评估
+- **开发状态**
+   - 正在进行
+- **负责人**
+   - 李安然
+- **运行环境**
+   - Python
 - **部署位置**
    - 2号服务器
 - **输入参数及说明**
@@ -700,3 +827,93 @@
 - **程序内部异常处理机制**
 
 ### 数据库与存储组
+
+### 数据定价组
+
+#### OfflineAuction
+
+- **功能概述**
+
+  - 各种offline拍卖机制的实现
+
+- **开发状态**
+
+  - 已完成
+
+- **负责人**
+
+  - 薛爽爽
+
+- **运行环境**
+
+  - python3
+
+- **部署位置**
+
+  - 跳板服务器 `/mechaismDesign/Mechanisms_v1.py`
+
+- **输入参数及说明**
+
+  - AuctionID(拍卖订单编号)
+  - MechanismMode（拍卖机制的编号）
+    - 1: VCG__mechanism
+    - 2: AscendingBidAuction
+    - 3: DescendingBidAuction
+
+- **输出参数及说明**
+
+  - WinnerID, PostPrice
+
+- **调用示例与结果**
+
+  ```
+
+  ```
+
+- **程序内部异常处理机制**
+
+
+
+
+
+#### LimitedSupplyOnlineAuction.py
+
+- **功能概述**
+  - 在线拍卖机制，卖有限份（1或k）
+- **开发状态**
+  - 部分完成
+- **负责人**
+  - wzw9875@mail.ustc.edu.cn
+- **运行环境**
+  - python3
+- **部署位置**
+  - 跳板服务器 `/datapool/workspace/ziweiwu/LimitedSupplyOnlineAuction.py`
+- **输入参数及说明**
+  - AuctionID(拍卖订单编号)
+  - Num(确定卖出的份数)
+  - ExpectedBuyerNum(预计买家人数)
+- **输出参数及说明**
+  - list(WinnerID), PostPrice
+- **调用示例与结果**
+- **程序内部异常处理机制**
+
+
+
+#### Recommend.py
+
+- **功能概述**
+  - 在限定时间内根据买家报价帮助卖家决定卖多少份以获得最大利润
+- **开发状态**
+  - 部分完成
+- **负责人**
+  - 薛爽爽
+- **运行环境**
+  - python3
+- **部署位置**
+  - 跳板服务器 `/mechanismDesign/Recommend.py`
+- **输入参数及说明**
+  - AuctionID(拍卖订单编号)
+- **输出参数及说明**
+  - CopyNum, list(WinnerID), PostPrice
+- **调用示例与结果**
+- **程序内部异常处理机制**
