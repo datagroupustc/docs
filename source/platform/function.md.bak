@@ -921,7 +921,7 @@
    - 附加说明：json文件格式 table_score_result.json:
 ```javascript
 {
-    "dataset_id":{//表格集dataset_id的上下文质量
+    "dataset_id":{//音频集dataset_id的上下文质量
 	"all_score":"整体质量分数",(类型：double，取值：不小于0)
 	},
 }
