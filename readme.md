@@ -6,7 +6,6 @@
 - 在编写阶段，建议只在本地 `make html` 查看效果，使用git进行版本控制，不要push到github。
 
 ## 安装环境
-
 - `pip install sphinx sphinx-autobuild sphinx\_rtd\_theme sphinx\_markdown\_tables`
 - [学习链接](https://www.xncoding.com/2017/01/22/fullstack/readthedoc.html)
 - 查看效果：make html，可在build/html中打开index.html查看效果
@@ -20,18 +19,19 @@
 - name和pass同github
 ## 编写说明
 - source/platform下有以下文件
-   - requirement：需求说明
-   - page：页面需求说明
-   - function：功能模块接口
-   - database：数据库设计
-   - storage：数据存储相关的设计
-   - timeline：时间规划
-   - questions：将现有的问题分类写在此处，如有解决方案可以在问题下进行填充
+   - requirement：需求说明
+   - page：页面需求说明
+   - function：功能模块接口
+   - database：数据库设计，如果是json类型的表项，由相关组进行填写
+   - storage：数据存储相关的设计，数据集的存储，程序生成的文件，Log文件的格式和规范在此处定义（目前阶段只需填写前三项）
+   - timeline：时间规划，尽可能将确定的任务细化至周，细化到负责人
+   - questions：将现有的问题分类写在此处，如有解决方案可以在问题下进行填充
    - figure文件夹：存放相关图片资料，命名规范：groupname-XXX
 - 编写规范说明   
-   - 需求说明文档：待增   
+   - requirement：见该文档开头   
    - page：待增   
-   - function：见该页面开头   
-   - database：待增   
+   - function：见该文档开头   
+   - database：待增
+   - storage：见该文档开头
    - timeline：待增
    - 如有其他问题，大家多沟通下哈   
