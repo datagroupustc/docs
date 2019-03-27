@@ -75,14 +75,14 @@
 
     ~~~javascript
     var client = request.newClient('http://localhost:3002/');
-   
+
     var request = {
            model_params : {
                        k: 5,
                        metric:"minkowski",
                        cv:5
                        },
-   
+
            system_params:{
                        api_id : 2,
                        dataset_id : 2,
@@ -90,9 +90,9 @@
                        signature:"xxx",
                        timestamp:2018xxx,
                        }
-   
+
            }
-   
+
     client.post('/model', request, function(err, res, body) {
      //nothing
     });
@@ -104,10 +104,10 @@
    //成功示例
    status_code = 400!
    accuracy = {"0":0.9206349206349206,"1":0.8492063492063492,"2":0.9285714285714286,"3":0.9596774193548387,"4":0.8780487804878049}
-   
+
    //失败示例
    the api_key doesnt exist!
-   
+
    ~~~
 
 
@@ -615,6 +615,10 @@
 
 ![ ](figure/track1.png  "数据追溯说明1")
 
+### 数据溯源与追踪
+
+![ ](figure/track1.png  "数据追溯说明1")
+
 #### querySimiliar
 - **功能概述**
 
@@ -630,9 +634,13 @@
    结果是一个字典，转换为JSON格式，返回给主程序改JSON文件的文件地址。
    ```
    {
-    'element id in dataset queried': 'similiar element id in whole dataset',
-    ...
-   }
+     'code': 400, # 状态码
+     'dataset id': dataset_id,
+     'data': {
+        'element id in dataset queried': 'similiar element id in whole dataset',
+        ...
+      }
+    }
    ```
 - **调用示例与结果**
   调用示例和结果
@@ -668,6 +676,17 @@
 - **输出参数及说明**
 
    - 将哈希值写入数据库(每个哈希1024比特)
+
+   结果是一个字典，转换为JSON格式，返回给主程序改JSON文件的文件地址。
+   ```
+   {
+     'is_write': True or False, # 状态码
+     'data': {
+        'element id in dataset queried': True or False,
+        ...
+      }
+    }
+   ```
 - **调用示例与结果**
   调用示例和结果
   ```
