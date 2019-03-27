@@ -615,10 +615,6 @@
 
 ![ ](figure/track1.png  "数据追溯说明1")
 
-### 数据溯源与追踪
-
-![ ](figure/track1.png  "数据追溯说明1")
-
 #### querySimiliar
 - **功能概述**
 
