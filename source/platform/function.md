@@ -70,7 +70,6 @@
 | accuracy    | dictionary | 表示交叉验证的模型精度                                      |
 
 - **调用示例与结果**
-
    - 请求示例
 
     ~~~javascript
@@ -199,7 +198,7 @@
    - 抽取视频关键帧
 - **开发状态**：已完成
 - **负责人**： 袁牧
-- **运行环境**：`python3 /datapool/workspace/yuanmu/yuanmu_env`
+- **运行环境**： python3 workspace/yuanmu/yuanmu_env
 - **部署位置**：
 - **输入参数及说明**
    - 视频文件夹路径
@@ -208,7 +207,7 @@
    - 于指定路径保存输出结果（pickle文件）
    - （default）更新数据库视频关键帧路径
 - **调用示例与结果**
-   - 查看帮助：`python3 video_detect_keyframe.py -h`
+   - 查看帮助：python3 video_detect_keyframe.py -h
 - **程序内部异常处理机制**
 
 
@@ -219,7 +218,7 @@
    - 检测图片中的物体
 - **开发状态**：已完成
 - **负责人**：袁牧
-- **运行环境**：`python2 default`
+- **运行环境**：python2 default
 - **部署位置**
 - **输入参数及说明**
    - 图片文件夹路径
@@ -228,195 +227,179 @@
    - 模型运行结果存储路径
    - （default）更新数据库中图片数据集的物体检测结果
 - **调用示例与结果**
-   - 查看帮助：`python2 image_detect_object.py -h`
+   - 查看帮助：python2 image_detect_object.py -h
 - **程序内部异常处理机制**
 
 #### image_classify_scene
 - **功能概述**
    - 识别图片的场景类别
-- **开发状态**：已完成
-- **负责人**：袁牧
-- **运行环境**：`python3 /datapool/workspace/yuanmu/yuanmu_env`
+- **开发状态**
+- **负责人**
+- **运行环境**
 - **部署位置**
 - **输入参数及说明**
-   - 同上
-   - （default）从数据库中读入图片文件夹路径
+   - 图片文件夹路径
 - **输出参数及说明**
    - 模型运行结果存储路径
-   - （default）更新数据库中图片数据集的场景分类结果
 - **调用示例与结果**
-   - 查看帮助：`python3 image_classify_scene.py -h`
 - **程序内部异常处理机制**
 
 #### image_detect_face
 - **功能概述**
    - 检测图片中的人脸
-- **开发状态**：已完成
-- **负责人**：袁牧
-- **运行环境**：`python3 /datapool/workspace/yuanmu/yuanmu_env`
+- **开发状态**
+- **负责人**
+- **运行环境**
 - **部署位置**
 - **输入参数及说明**
-   - 同上
+   - 图片文件夹路径
 - **输出参数及说明**
    - 模型运行结果存储路径
-   - （default）更新数据库中图片数据集的人脸识别结果
 - **调用示例与结果**
-   - 查看帮助：`python3 image_detect_face.py -h `
 - **程序内部异常处理机制**
 
 #### image_detect_skeleton
 - **功能概述**
    - 检测图片中的人物骨架
-- **开发状态**：已完成
-- **负责人**：袁牧
-- **运行环境**：`python3 /datapool/workspace/yuanmu/yuanmu_env`
+- **开发状态**
+- **负责人**
+- **运行环境**
 - **部署位置**
 - **输入参数及说明**
-   - 同上
+   - 图片文件夹路径
 - **输出参数及说明**
    - 模型运行结果存储路径
-   - （default）更新数据库中图片数据集的人物骨架检测结果
 - **调用示例与结果**
-   - 查看帮助：`python3 image_detect_skeleton.py -h`
 - **程序内部异常处理机制**
 
 #### audio_recognize_speech
 - **功能概述**
    - 识别音频中的英语
-- **开发状态**：已完成
-- **负责人**：袁牧
-- **运行环境**：`python3 /datapool/workspace/yuanmu/yuanmu_env `
+- **开发状态**
+- **负责人**
+- **运行环境**
 - **部署位置**
 - **输入参数及说明**
    - 音频文件夹路径
-   - （default）从数据库中读入音频文件夹路径
 - **输出参数及说明**
    - 模型运行结果存储路径
-   - （default）更新数据库中音频数据集的语音识别结果
 - **调用示例与结果**
-   - 查看帮助：`python3 audio_recognize_speech.py -h  `
 - **程序内部异常处理机制**
 
 #### utility_image_object-detection
 - **功能概述**
    - 评估图片数据集的物体检测效用
-- **开发状态**：待开发
-- **负责人**：吴铮涛
-- **运行环境**：`python3 /datapool/workspace/wuzhengtao/wuzhengtao_env`
+- **开发状态**
+- **负责人**
+- **运行环境**
 - **部署位置**
 - **输入参数及说明**
-	- image_detect_object模型运行结果路径
-	- （default）数据库中图片数据集的物体检测结果
+   - 模型运行结果路径
 - **输出参数及说明**
-	- 图片数据集的物体检测效用评估分数
-   - （default）更新数据库中图片数据集的物体检测效用评估分数
+   - 数据集效用评估分数
 - **调用示例与结果**
 - **程序内部异常处理机制**
 
 #### utility_image_face-detection
 - **功能概述**
    - 评估图片数据集的人脸检测效用
-- **开发状态**：未开发
-- **负责人**：吴铮涛
-- **运行环境**：`python3 /datapool/workspace/wuzhengtao/wuzhengtao_env`
+- **开发状态**
+- **负责人**
+- **运行环境**
 - **部署位置**
 - **输入参数及说明**
-	- image_detect_face模型运行结果路径
-   - （default）数据库中图片数据集的人脸识别结果
+   - 模型运行结果路径
 - **输出参数及说明**
-	- 图片数据集的人脸检测效用评估分数
-   - （default）更新数据库中图片数据集的人脸检测效用评估分数
+   - 数据集效用评估分数
 - **调用示例与结果**
 - **程序内部异常处理机制**
 
 #### utility_image_scene-classification
 - **功能概述**
    - 评估图片数据集的场景分类效用
-- **开发状态**：未开发
-- **负责人**：吴铮涛
-- **运行环境**：`python3 /datapool/workspace/wuzhengtao/wuzhengtao_env`
+- **开发状态**
+- **负责人**
+- **运行环境**
 - **部署位置**
 - **输入参数及说明**
-	- image_classify_scene模型运行结果路径
-   - （default）数据库中图片数据集的场景分类结果
+   - 模型运行结果路径
 - **输出参数及说明**
-	- 图片数据集的场景分类效用评估分数
-   - （default）更新数据库中图片数据集的场景分类效用评估分数
+   - 数据集效用评估分数
 - **调用示例与结果**
 - **程序内部异常处理机制**
+	utility_image_skeleton-detection	评估图片数据集的骨架检测效用	模型运行结果路径	数据集效用评估分数
 #### utility_image_skeleton-detection
 - **功能概述**
    - 评估图片数据集的骨架检测效用
-- **开发状态**：未开发
-- **负责人**：吴铮涛
-- **运行环境**：`python3 /datapool/workspace/wuzhengtao/wuzhengtao_env`
+- **开发状态**
+- **负责人**
+- **运行环境**
 - **部署位置**
 - **输入参数及说明**
-   - image_detect_skeleton模型运行结果路径
-   - （default）数据库中图片数据集的人物骨架检测结果  
+   - 模型运行结果路径
 - **输出参数及说明**
-   - 图片数据集的骨架检测效用评估分数
-   - （default）更新数据库中图片数据集的骨架检测效用评估分数
+   - 数据集效用评估分数
 - **调用示例与结果**
 - **程序内部异常处理机制**
 
 #### utility_audio_speech-recognition
 - **功能概述**
    - 评估音频数据集的语音识别效用
-- **开发状态**：未开发
-- **负责人**：吴铮涛
-- **运行环境**：`python3 /datapool/workspace/wuzhengtao/wuzhengtao_env`
+- **开发状态**
+- **负责人**
+- **运行环境**
 - **部署位置**
 - **输入参数及说明**
-   - audio_recognize_speech模型运行结果路径
-   - （default）数据库中音频数据集的语音识别结果
+   - 模型运行结果路径
 - **输出参数及说明**
-   - 音频数据集的语音识别效用评估分数
-   - （default）更新数据库中音频数据集的语音识别结果
+   - 数据集效用评估分数
 - **调用示例与结果**
 - **程序内部异常处理机制**
 
 #### scheduler_video
 - **功能概述**
-   - 调度视频数据理解程序
-- **开发状态**：开发中
-- **负责人**：袁牧
+   - 调度视频待运行程序
+- **开发状态**
+- **负责人**
 - **运行环境**
 - **部署位置**
 - **输入参数及说明**
+   - 视频数据集表
 - **输出参数及说明**
 - **调用示例与结果**
 - **程序内部异常处理机制**
 
 #### scheduler_image
 - **功能概述**
-   - 调度图片数据理解程序
-- **开发状态**：开发中
-- **负责人**：袁牧
+   - 调度图片待运行程序
+- **开发状态**
+- **负责人**
 - **运行环境**
 - **部署位置**
 - **输入参数及说明**
+   - 图片数据集表
 - **输出参数及说明**
 - **调用示例与结果**
 - **程序内部异常处理机制**
 
 #### scheduler_audio
 - **功能概述**
-   - 调度音频数据理解程序
-- **开发状态**：开发中
-- **负责人**：袁牧
+   - 调度音频待运行程序
+- **开发状态**
+- **负责人**
 - **运行环境**
 - **部署位置**
 - **输入参数及说明**
+   - 音频数据集表
 - **输出参数及说明**
 - **调用示例与结果**
 - **程序内部异常处理机制**
 
 #### scheduler_text
 - **功能概述**
-   - 调度文本数据理解程序
-- **开发状态**：开发中
-- **负责人**：袁牧
+   - 调度文本待运行程序
+- **开发状态**
+- **负责人**
 - **运行环境**
 - **部署位置**
 - **输入参数及说明**
@@ -428,8 +411,8 @@
 #### index_dataunit
 - **功能概述**
    - 构建/更新数据元的索引文件
-- **开发状态**：开发中
-- **负责人**：杨林卓
+- **开发状态**
+- **负责人**
 - **运行环境**
 - **部署位置**
 - **输入参数及说明**
@@ -443,8 +426,8 @@
 #### index_dataset
 - **功能概述**
    - 构建/更新数据集的索引文件
-- **开发状态**：开发中
-- **负责人**：杨林卓
+- **开发状态**
+- **负责人**
 - **运行环境**
 - **部署位置**
 - **输入参数及说明**
@@ -458,9 +441,9 @@
 #### search_dataunit
 - **功能概述**
    - 检索数据元
-- **开发状态**：开发中
-- **负责人**：吴铮涛
-- **运行环境**：`python3 /datapool/workspace/wuzhengtao/wuzhengtao_env`
+- **开发状态**
+- **负责人**
+- **运行环境**
 - **部署位置**
 - **输入参数及说明**
    - query form （前端传入）
@@ -472,9 +455,9 @@
 #### search_dataset
 - **功能概述**
    - 检索数据集
-- **开发状态**：开发中
-- **负责人**：吴铮涛
-- **运行环境**：`python3 /datapool/workspace/wuzhengtao/wuzhengtao_env`
+- **开发状态**
+- **负责人**
+- **运行环境**
 - **部署位置**
 - **输入参数及说明**
    - query form （前端传入）
@@ -482,10 +465,6 @@
    - 检索结果 （传回前端）
 - **调用示例与结果**
 - **程序内部异常处理机制**
-
-
-
-
 
 ### 数据脱敏
 
@@ -630,13 +609,9 @@
    结果是一个字典，转换为JSON格式，返回给主程序改JSON文件的文件地址。
    ```
    {
-     'code': 400, # 状态码
-     'dataset id': dataset_id,
-     'data': {
-        'element id in dataset queried': 'similiar element id in whole dataset',
-        ...
-      }
-    }
+    'element id in dataset queried': 'similiar element id in whole dataset',
+    ...
+   }
    ```
 - **调用示例与结果**
   调用示例和结果
@@ -672,17 +647,6 @@
 - **输出参数及说明**
 
    - 将哈希值写入数据库(每个哈希1024比特)
-
-   结果是一个字典，转换为JSON格式，返回给主程序改JSON文件的文件地址。
-   ```
-   {
-     'is_write': True or False, # 状态码
-     'data': {
-        'element id in dataset queried': True or False,
-        ...
-      }
-    }
-   ```
 - **调用示例与结果**
   调用示例和结果
   ```
@@ -972,8 +936,9 @@
    - flag=001，输入数据集dataset_id错误
    - flag=010，IO错误
 
-
 ### 数据库与存储组
+
+
 
 ### 数据定价组
 
@@ -985,7 +950,7 @@
 
 - **开发状态**
 
-  - 已完成
+  - 本地已完成，正在部署到服务器
 
 - **负责人**
 
@@ -1002,10 +967,11 @@
 - **输入参数及说明**
 
   - AuctionID(拍卖订单编号)
-  - MechanismMode（拍卖机制的编号）
+  - MechanismMode（拍卖机制的编号，默认为VCG）
     - 1: VCG__mechanism
     - 2: AscendingBidAuction
     - 3: DescendingBidAuction
+    - 4: UnsealedBidAuction
 
 - **输出参数及说明**
 
@@ -1013,54 +979,158 @@
 
 - **调用示例与结果**
 
-  ```
-
+  ```shell
+  $ python3 Mechanisms_v1.py -MID 1 -AID 001
+  Winner: [01,03]  Price: 2000
   ```
 
 - **程序内部异常处理机制**
 
+  flag = 000: 正常
 
+  flag = 001: 未找到AID对应的拍卖交易
+
+  flag = 010: 未找到MID对应的机制
+
+  flag = 100: 未能成功卖出商品
 
 
 
 #### LimitedSupplyOnlineAuction.py
 
 - **功能概述**
+
   - 在线拍卖机制，卖有限份（1或k）
+
 - **开发状态**
+
   - 部分完成
+
 - **负责人**
+
   - wzw9875@mail.ustc.edu.cn
+
 - **运行环境**
+
   - python3
+
 - **部署位置**
+
   - 跳板服务器 `/datapool/workspace/ziweiwu/LimitedSupplyOnlineAuction.py`
+
 - **输入参数及说明**
   - AuctionID(拍卖订单编号)
   - Num(确定卖出的份数)
   - ExpectedBuyerNum(预计买家人数)
+
 - **输出参数及说明**
+
   - list(WinnerID), PostPrice
+
 - **调用示例与结果**
+
+  ```shell
+  $ python3 LimitedSupplyOnlineAuction.py -AID 001 -n 1 -e 13
+  Winner: [10]  Price: 200
+  ```
+
 - **程序内部异常处理机制**
+
+  未设置预计买家人数：不处理
+
+  flag = 000：正常
+
+  flag = 001：未找到AID对应的拍卖交易
 
 
 
 #### Recommend.py
 
 - **功能概述**
+
   - 在限定时间内根据买家报价帮助卖家决定卖多少份以获得最大利润
+
 - **开发状态**
-  - 部分完成
+
+  - 本地测试完成，正在部署到服务器
+
 - **负责人**
-  - 薛爽爽
+
+  - 薛爽爽 
+
 - **运行环境**
+
   - python3
+
 - **部署位置**
+
   - 跳板服务器 `/mechanismDesign/Recommend.py`
+
 - **输入参数及说明**
+
   - AuctionID(拍卖订单编号)
+
 - **输出参数及说明**
+
   - CopyNum, list(WinnerID), PostPrice
+
 - **调用示例与结果**
+
+  ```shell
+  $ python3 Recommend.py -AID 001
+  Copies: 3 Winner:[002,004,006] PostPrice: 200
+  ```
+
 - **程序内部异常处理机制**
+
+  flag = 000：正常
+
+  flag = 001：未找到AID对应的拍卖交易
+
+
+
+#### ExpectedProfit.py
+
+- **功能概述**
+
+  - 在卖家选择模式的时候为卖家提供预估收益的参考
+
+- **开发状态**
+
+  - 未完成
+
+- **负责人**
+
+  - wzw9875@mail.ustc.edu.cn
+
+- **运行环境**
+
+  - python3
+
+- **部署位置**
+
+  - 跳板服务器 `/datapool/workspace/ziweiwu/ExpectedProfit.py`
+
+- **输入参数及说明**
+
+  - AuctionID(拍卖订单编号)
+  - MechanismID(机制编号)
+
+- **输出参数及说明**
+
+  - Profit
+
+- **调用示例与结果**
+
+  ```shell
+  $ python3 ExpectedProfit.py -AID 001 -MID 0
+  Profit: xxxx
+  ```
+
+- **程序内部异常处理机制**
+
+  flag = 000：正常
+
+  flag = 001：未找到AID对应的拍卖交易
+
+  flag = 010：未找到MID对应的机制
