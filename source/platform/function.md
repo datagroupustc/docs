@@ -191,14 +191,28 @@
 
 - **程序内部异常处理机制**
 
+---
+
 ### 数据理解与检索部分
+
+
+
+**Preliminaries**
+
+| 名称       | 路径                                        |
+| ---------- | ------------------------------------------- |
+| yuanmu_env | /datapool/workspace/yuanmu_env              |
+| datasearch | /datapool/workspace/search_group/datasearch |
+| ...        |                                             |
+
+
 
 #### video_detect_keyframe
 - **功能概述**
    - 抽取视频关键帧
 - **开发状态**：已完成
 - **负责人**： 袁牧
-- **运行环境**： python3 workspace/yuanmu/yuanmu_env
+- **运行环境**： python3 yuanmu_env
 - **部署位置**：
 - **输入参数及说明**
    - 视频文件夹路径
@@ -212,56 +226,124 @@
 
 
 
-#### image_detect_object
+#### image_object_detection
 
 - **功能概述**
-   - 检测图片中的物体
+
+   - 使用yolo-v3模型检测图片中的物体
+
+- **开发状态**：已完成
+
+- **负责人**：袁牧
+
+- **运行环境**：python2 default
+
+- **部署位置**：datasearch/model_api/run_darknet.py
+
+- **输入参数及说明**
+
+   - 查看帮助：python2 run_darknet.py -h
+   - img_dir: 图片文件夹路径
+   - out_dir: 输出结果存储路径
+   - (optional) --threshold：检测物体的confidence阈值，default=0.5
+
+- **输出参数及说明**
+
+   - (implicit) 保存检测结果并更新数据库中图片数据集的检测结果[]
+
+- **调用示例与结果**
+
+   - `python2 run_darknet.py test_image/ test_image_res/ --threshold 0.60`
+
+   - 模型输出结果：
+
+     ```python
+     import pickle
+     
+     data = pickle.load(open("path_to_file.pkl", "rb"))
+     
+     data:
+     > [['class_name', conf, [x_left, y_top, width, height]], ...]
+     ```
+
+- **程序内部异常处理机制**
+
+    
+
+#### image_scene_classfiy
+- **功能概述**
+
+   - 使用在places365上训练的模型识别图片的场景类别
 - **开发状态**：已完成
 - **负责人**：袁牧
-- **运行环境**：python2 default
-- **部署位置**
+- **运行环境**：python3 yuanmu_env
+- **部署位置**：datasearch/model_api/run_places365_gpu.py
 - **输入参数及说明**
-   - 图片文件夹路径
-   - （default）从数据库中读入图片文件夹路径
+   - 查看帮助：python2 run_places365_gpu.py -h
+   - img_dir: 图片文件夹路径
+   - out_dir: 输出结果存储路径
+   - (optional) —arch: 模型架构，可选：["alexnet", "resnet18", "resnet50"]，default="resnet50"
 - **输出参数及说明**
-   - 模型运行结果存储路径
-   - （default）更新数据库中图片数据集的物体检测结果
+
+   - (implicit) 保存检测结果并更新数据库中图片数据集的检测结果
 - **调用示例与结果**
-   - 查看帮助：python2 image_detect_object.py -h
+
+   - `python3 run_places365_gpu.py test_image/ test_image_res/ —arch="alexnet"`
+
+   - 模型输出结果：
+
+     ```python
+     import pickle
+     
+     data = pickle.load(open("path_to_file.pkl", "rb"))
+     
+     data:
+     > [['class_name', conf], ...]
+     ```
+
 - **程序内部异常处理机制**
 
-#### image_classify_scene
-- **功能概述**
-   - 识别图片的场景类别
-- **开发状态**
-- **负责人**
-- **运行环境**
-- **部署位置**
-- **输入参数及说明**
-   - 图片文件夹路径
-- **输出参数及说明**
-   - 模型运行结果存储路径
-- **调用示例与结果**
-- **程序内部异常处理机制**
+
 
 #### image_detect_face
+
 - **功能概述**
-   - 检测图片中的人脸
-- **开发状态**
-- **负责人**
-- **运行环境**
-- **部署位置**
+
+   - 使用dlib人脸识别模型检测图片中的人脸
+- **开发状态**：已完成
+- **负责人**：袁牧
+- **运行环境**：python3 yuanmu_env
+- **部署位置**：datasearch/model_api/run_facerecognition.py
 - **输入参数及说明**
-   - 图片文件夹路径
+   - 查看帮助：python2 run_facerecognition.py -h
+   - img_dir: 图片文件夹路径
+   - out_dir: 输出结果存储路径
 - **输出参数及说明**
-   - 模型运行结果存储路径
+
+   - (implicit) 保存检测结果并更新数据库中图片数据集的检测结果
 - **调用示例与结果**
+
+   - `python3 run_facerecognition.py test_image/ test_image_res/ `
+
+   - 模型输出结果：
+
+     ```python
+     import pickle
+     
+     data = pickle.load(open("path_to_file.pkl", "rb"))
+     
+     data:
+     > [[x_left, y_top, width, height], ...]
+     ```
+
 - **程序内部异常处理机制**
+
+
 
 #### image_detect_skeleton
 - **功能概述**
-   - 检测图片中的人物骨架
-- **开发状态**
+   - 使用alphapose模型检测图片中的人物骨架
+- **开发状态**：
 - **负责人**
 - **运行环境**
 - **部署位置**
@@ -272,7 +354,10 @@
 - **调用示例与结果**
 - **程序内部异常处理机制**
 
+
+
 #### audio_recognize_speech
+
 - **功能概述**
    - 识别音频中的英语
 - **开发状态**
@@ -286,7 +371,10 @@
 - **调用示例与结果**
 - **程序内部异常处理机制**
 
+
+
 #### utility_image_object-detection
+
 - **功能概述**
    - 评估图片数据集的物体检测效用
 - **开发状态**
@@ -300,7 +388,10 @@
 - **调用示例与结果**
 - **程序内部异常处理机制**
 
+
+
 #### utility_image_face-detection
+
 - **功能概述**
    - 评估图片数据集的人脸检测效用
 - **开发状态**
@@ -314,7 +405,10 @@
 - **调用示例与结果**
 - **程序内部异常处理机制**
 
+
+
 #### utility_image_scene-classification
+
 - **功能概述**
    - 评估图片数据集的场景分类效用
 - **开发状态**
@@ -327,8 +421,11 @@
    - 数据集效用评估分数
 - **调用示例与结果**
 - **程序内部异常处理机制**
-	utility_image_skeleton-detection	评估图片数据集的骨架检测效用	模型运行结果路径	数据集效用评估分数
+
+
+
 #### utility_image_skeleton-detection
+
 - **功能概述**
    - 评估图片数据集的骨架检测效用
 - **开发状态**
@@ -342,7 +439,10 @@
 - **调用示例与结果**
 - **程序内部异常处理机制**
 
+
+
 #### utility_audio_speech-recognition
+
 - **功能概述**
    - 评估音频数据集的语音识别效用
 - **开发状态**
@@ -356,7 +456,10 @@
 - **调用示例与结果**
 - **程序内部异常处理机制**
 
+
+
 #### scheduler_video
+
 - **功能概述**
    - 调度视频待运行程序
 - **开发状态**
@@ -369,7 +472,10 @@
 - **调用示例与结果**
 - **程序内部异常处理机制**
 
+
+
 #### scheduler_image
+
 - **功能概述**
    - 调度图片待运行程序
 - **开发状态**
@@ -382,7 +488,10 @@
 - **调用示例与结果**
 - **程序内部异常处理机制**
 
+
+
 #### scheduler_audio
+
 - **功能概述**
    - 调度音频待运行程序
 - **开发状态**
@@ -395,7 +504,10 @@
 - **调用示例与结果**
 - **程序内部异常处理机制**
 
+
+
 #### scheduler_text
+
 - **功能概述**
    - 调度文本待运行程序
 - **开发状态**
@@ -408,7 +520,10 @@
 - **调用示例与结果**
 - **程序内部异常处理机制**
 
+
+
 #### index_dataunit
+
 - **功能概述**
    - 构建/更新数据元的索引文件
 - **开发状态**
@@ -423,7 +538,10 @@
 - **调用示例与结果**
 - **程序内部异常处理机制**
 
+
+
 #### index_dataset
+
 - **功能概述**
    - 构建/更新数据集的索引文件
 - **开发状态**
@@ -438,7 +556,10 @@
 - **调用示例与结果**
 - **程序内部异常处理机制**
 
+
+
 #### search_dataunit
+
 - **功能概述**
    - 检索数据元
 - **开发状态**
@@ -452,7 +573,10 @@
 - **调用示例与结果**
 - **程序内部异常处理机制**
 
+
+
 #### search_dataset
+
 - **功能概述**
    - 检索数据集
 - **开发状态**
@@ -465,6 +589,8 @@
    - 检索结果 （传回前端）
 - **调用示例与结果**
 - **程序内部异常处理机制**
+
+
 
 ### 数据脱敏
 
